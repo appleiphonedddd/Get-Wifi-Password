@@ -11,7 +11,7 @@ def get_wifi_profiles():
             names.append(name[1:-1])
     return names
 
-for name in get_wifi_profiles()():
+for name in get_wifi_profiles():
     meta_data = subprocess.check_output(["netsh","wlan","show","profiles",name,"key=clear"])
     data = meta_data.decode("utf-8",errors="backslashreplace")
     data = data.split("\n")
